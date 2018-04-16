@@ -5,6 +5,7 @@
  */
 package pl.edu.ur.oopl5.zad3;
 
+
 /**
  *
  * @author Adrian Hrycaj
@@ -12,7 +13,6 @@ package pl.edu.ur.oopl5.zad3;
 public class Complex {
     private double re;
     private double im;
-    
     public Complex(double re, double im) {
         this.re = re;
         this.im = im;
@@ -25,6 +25,10 @@ public class Complex {
         } else {
             return re + "" + im + "i";
         }
+    }
+    
+    public String wykladniczaToString() {
+        return re + "*e^" + im + "i";
     }
     
     public double liczModol(){
@@ -40,16 +44,21 @@ public class Complex {
     }
 
     public void zmienNaWykladnicza(){
-        double sin, cos, fi;
-        sin=this.im/liczModol();
-        cos=this.re/liczModol();
+        double fi;
         fi=Math.atan2(this.im, this.re);
 
         System.out.println(liczModol() + "*e^" + fi + "i");
     }
     
-    public void zmienNaAlgebraiczna(){
+    public String zmienNaAlgebraiczna(){
+        double x = this.re * Math.cos(this.im);
+        double y = this.re * Math.sin(this.im);
         
+        if(y>=0){
+            return x + "+" + y + "i";
+        } else {
+            return x + "" + y + "i";
+        }
     }
     
     public String dodajAlgebraicznie(Complex complex1){

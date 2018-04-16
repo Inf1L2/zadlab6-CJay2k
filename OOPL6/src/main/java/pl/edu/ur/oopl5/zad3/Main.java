@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         double re, im;
-        int c,i=0;
+        int c;
         Complex complex;
         Complex complex1;
         Scanner scanner = new Scanner(System.in);
@@ -24,7 +24,7 @@ public class Main {
             System.out.println("1. Obliczanie modułu liczby zespolonej");                               //działa
             System.out.println("2. Obliczenie wartości liczby sprzężonej do liczby zespolonej");        //działa
             System.out.println("3. Zamiana postaci algebraicznej liczby zespolonej na wykładniczą");    //działa
-            System.out.println("4. Zamiana postaci wykładniczej liczby zespolonej na algebraiczną");    //
+            System.out.println("4. Zamiana postaci wykładniczej liczby zespolonej na algebraiczną");    //działa
             System.out.println("5. Dodawanie (z argumentami w postaci algebraicznej)");                 //działa
             System.out.println("6. Dodawanie (z argumentami w postaci wykładnicze)");                   //
             System.out.println("7. Odejmowanie (z argumentami w postaci algebraicznej)");               //działa
@@ -38,18 +38,18 @@ public class Main {
             switch (c) {
                 case 1:
                     System.out.print("Podaj część rzeczywistą liczby zespolonej: ");
-                    re=scanner.nextInt();
+                    re=scanner.nextDouble();
                     System.out.print("Podaj część urojoną liczby zespolonej: ");
-                    im=scanner.nextInt();
+                    im=scanner.nextDouble();
                     complex = new Complex(re, im);
                     System.out.println("Moduł podanej liczby zespolonej " + complex.toString() + " to : " + complex.liczModol());
                 break;
 
                 case 2:
                     System.out.print("Podaj część rzeczywistą liczby zespolonej: ");
-                    re=scanner.nextInt();
+                    re=scanner.nextDouble();
                     System.out.print("Podaj część urojoną liczby zespolonej: ");
-                    im=scanner.nextInt();
+                    im=scanner.nextDouble();
                     complex = new Complex(re, im);
                     System.out.println("Sprzężenie podanej liczby zespolonej " + complex.toString() + " to: ");
                     complex.liczSprzezenie();
@@ -57,29 +57,35 @@ public class Main {
                 
                 case 3:
                     System.out.print("Podaj część rzeczywistą liczby zespolonej: ");
-                    re=scanner.nextInt();
+                    re=scanner.nextDouble();
                     System.out.print("Podaj część urojoną liczby zespolonej: ");
-                    im=scanner.nextInt();
+                    im=scanner.nextDouble();
                     complex = new Complex(re, im);
                     System.out.println("Postać wykładnicza liczby zespolonej " + complex.toString() + " to: ");
                     complex.zmienNaWykladnicza();
                 break;
 
                 case 4:
-                    
+                    System.out.print("Podaj moduł liczby zespolonej: ");
+                    re=scanner.nextDouble();
+                    System.out.print("Podaj argument liczby zespolonej (w radianach): ");
+                    im=scanner.nextDouble();
+                    complex = new Complex(re, im);
+                    System.out.println("Postać wykładnicza liczby zespolonej " + complex.wykladniczaToString() + " to: ");
+                    System.out.println(complex.zmienNaAlgebraiczna());
                 break;
                 
                 case 5:
                     System.out.print("Podaj część rzeczywistą pierwszej liczby zespolonej: ");
-                    re=scanner.nextInt();
+                    re=scanner.nextDouble();
                     System.out.print("Podaj część urojoną pierwszej liczby zespolonej: ");
-                    im=scanner.nextInt();
+                    im=scanner.nextDouble();
                     complex = new Complex(re, im);
                     
                     System.out.print("Podaj część rzeczywistą drugiej liczby zespolonej: ");
-                    re=scanner.nextInt();
+                    re=scanner.nextDouble();
                     System.out.print("Podaj część urojoną drugiej liczby zespolonej: ");
-                    im=scanner.nextInt();
+                    im=scanner.nextDouble();
                     complex1 = new Complex(re, im);
                     System.out.println("Wynik dodawania tej liczb to: " + complex.dodajAlgebraicznie(complex1));
                 break;
@@ -90,15 +96,15 @@ public class Main {
                 
                 case 7:
                     System.out.print("Podaj część rzeczywistą pierwszej liczby zespolonej: ");
-                    re=scanner.nextInt();
+                    re=scanner.nextDouble();
                     System.out.print("Podaj część urojoną pierwszej liczby zespolonej: ");
-                    im=scanner.nextInt();
+                    im=scanner.nextDouble();
                     complex = new Complex(re, im);
                     
                     System.out.print("Podaj część rzeczywistą drugiej liczby zespolonej: ");
-                    re=scanner.nextInt();
+                    re=scanner.nextDouble();
                     System.out.print("Podaj część urojoną drugiej liczby zespolonej: ");
-                    im=scanner.nextInt();
+                    im=scanner.nextDouble();
                     complex1 = new Complex(re, im);
                     System.out.println("Wynik odejmowania tych liczb to: " + complex.odejmijAlgebraicznie(complex1));
                 break;
@@ -109,15 +115,15 @@ public class Main {
                 
                 case 9:
                     System.out.print("Podaj część rzeczywistą pierwszej liczby zespolonej: ");
-                    re=scanner.nextInt();
+                    re=scanner.nextDouble();
                     System.out.print("Podaj część urojoną pierwszej liczby zespolonej: ");
                     im=scanner.nextInt();
                     complex = new Complex(re, im);
                     
                     System.out.print("Podaj część rzeczywistą drugiej liczby zespolonej: ");
-                    re=scanner.nextInt();
+                    re=scanner.nextDouble();
                     System.out.print("Podaj część urojoną drugiej liczby zespolonej: ");
-                    im=scanner.nextInt();
+                    im=scanner.nextDouble();
                     complex1 = new Complex(re, im);
                     System.out.println("Wynik dzielenia tych liczb to: " + complex.podzielAlgebraicznie(complex1));
                 break;

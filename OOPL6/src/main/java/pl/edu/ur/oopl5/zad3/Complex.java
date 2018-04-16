@@ -21,9 +21,9 @@ public class Complex {
     @Override
     public String toString() {
         if(this.im>=0){
-            return re + "+" + im + "i";
+            return this.re + "+" + this.im + "i";
         } else {
-            return re + "" + im + "i";
+            return this.re + "" + this.im + "i";
         }
     }
     
@@ -36,56 +36,50 @@ public class Complex {
     }
     
     public void liczSprzezenie(){
-        if(this.im>0){
-            System.out.println(this.re + "" + -this.im + "i");
-        } else{
-            System.out.println(this.re + "+" + -this.im + "i");
-        }
+        this.im=-this.im;
+        
+        toString();
     }
 
     public void zmienNaWykladnicza(){
-        double fi;
-        fi=Math.atan2(this.im, this.re);
-
-        System.out.println(liczModol() + "*e^" + fi + "i");
+        this.im=Math.atan2(this.im, this.re);
+        this.re=liczModol();
+        
+        
+        System.out.println(wykladniczaToString());
     }
     
-    public String zmienNaAlgebraiczna(){
+    public void zmienNaAlgebraiczna(){
         double x = this.re * Math.cos(this.im);
         double y = this.re * Math.sin(this.im);
+        this.re=x;
+        this.im=y;
         
-        if(y>=0){
-            return x + "+" + y + "i";
-        } else {
-            return x + "" + y + "i";
-        }
+        System.out.println(toString());
     }
     
-    public String dodajAlgebraicznie(Complex complex1){
-        double x=this.re+complex1.re;
-        double y=this.im+complex1.im;
-        if(y>=0){
-            return x + "+" + y + "i";
-        } else {
-            return x + "" + y + "i";
-        }
+    public void dodajAlgebraicznie(Complex complex1){
+        this.re=this.re+complex1.re;
+        this.im=this.im+complex1.im;
+        
+        System.out.println(toString());
     }
     
-    /*public String dodajWykladniczo(Complex complex1){
+    public void dodajWykladniczo(Complex complex1){
+        zmienNaAlgebraiczna();
+        complex1.zmienNaAlgebraiczna();
         
+        this.re=this.re+complex1.re;
+        this.im=this.im+complex1.im;
         
-        
-        }
-    }*/
+        zmienNaWykladnicza();
+    }
     
-    public String odejmijAlgebraicznie(Complex complex1){
-        double x=this.re-complex1.re;
-        double y=this.im-complex1.im;
-        if(y>=0){
-            return x + "+" + y + "i";
-        } else {
-            return x + "" + y + "i";
-        }
+    public void odejmijAlgebraicznie(Complex complex1){
+        this.re=this.re-complex1.re;
+        this.im=this.im-complex1.im;
+        
+        System.out.println(toString());
     }
     
     public String podzielAlgebraicznie(Complex complex1){

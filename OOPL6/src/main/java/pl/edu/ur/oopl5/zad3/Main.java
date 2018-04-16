@@ -72,7 +72,7 @@ public class Main {
                     im=scanner.nextDouble();
                     complex = new Complex(re, im);
                     System.out.println("Postać wykładnicza liczby zespolonej " + complex.wykladniczaToString() + " to: ");
-                    System.out.println(complex.zmienNaAlgebraiczna());
+                    complex.zmienNaAlgebraiczna();
                 break;
                 
                 case 5:
@@ -87,11 +87,25 @@ public class Main {
                     System.out.print("Podaj część urojoną drugiej liczby zespolonej: ");
                     im=scanner.nextDouble();
                     complex1 = new Complex(re, im);
-                    System.out.println("Wynik dodawania tej liczb to: " + complex.dodajAlgebraicznie(complex1));
+                    System.out.println("Wynik dodawania tych liczb to: ");
+                    complex.dodajAlgebraicznie(complex1);
                 break;
                 
                 case 6:
+                    System.out.print("Podaj moduł pierwszej liczby zespolonej: ");
+                    re=scanner.nextDouble();
+                    System.out.print("Podaj argument pierwszej liczby zespolonej (w radianach): ");
+                    im=scanner.nextDouble();
+                    complex = new Complex(re, im);
                     
+                    System.out.print("Podaj moduł drugiej liczby zespolonej: ");
+                    re=scanner.nextDouble();
+                    System.out.print("Podaj argument drugiej liczby zespolonej (w radianach): ");
+                    im=scanner.nextDouble();
+                    complex1 = new Complex(re, im);
+                    
+                    System.out.println("Wynik dodawania tych liczb to ");
+                    complex.dodajWykladniczo(complex1);
                 break;
                 
                 case 7:
@@ -106,7 +120,8 @@ public class Main {
                     System.out.print("Podaj część urojoną drugiej liczby zespolonej: ");
                     im=scanner.nextDouble();
                     complex1 = new Complex(re, im);
-                    System.out.println("Wynik odejmowania tych liczb to: " + complex.odejmijAlgebraicznie(complex1));
+                    System.out.println("Wynik odejmowania tych liczb to: ");
+                    complex.odejmijAlgebraicznie(complex1);
                 break;
                 
                 case 8:

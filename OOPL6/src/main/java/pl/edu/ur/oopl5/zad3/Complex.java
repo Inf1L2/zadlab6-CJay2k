@@ -43,20 +43,13 @@ public class Complex {
         double sin, cos, fi;
         sin=this.im/liczModol();
         cos=this.re/liczModol();
-        fi=Math.atan2(this.re, this.im);
-        /*if(sin==0 && cos==1){
-            fi=0;
-        } else if(sin==1/2 && cos==Math.sqrt(3)/2){
-            fi=Math.PI/6;
-        } else if(sin==Math.sqrt(2)/2 && cos==Math.sqrt(2)/2){
-            fi=Math.PI/4;
-        } else if(sin==Math.sqrt(3)/2 && cos==1/2){
-            fi=Math.PI/3;
-        } else {
-            fi=Math.PI/2;
-        }*/
-        System.out.println(sin + " " + cos);
+        fi=Math.atan2(this.im, this.re);
+
         System.out.println(liczModol() + "*e^" + fi + "i");
+    }
+    
+    public void zmienNaAlgebraiczna(){
+        
     }
     
     public String dodajAlgebraicznie(Complex complex1){
@@ -69,6 +62,13 @@ public class Complex {
         }
     }
     
+    /*public String dodajWykladniczo(Complex complex1){
+        
+        
+        
+        }
+    }*/
+    
     public String odejmijAlgebraicznie(Complex complex1){
         double x=this.re-complex1.re;
         double y=this.im-complex1.im;
@@ -76,6 +76,28 @@ public class Complex {
             return x + "+" + y + "i";
         } else {
             return x + "" + y + "i";
+        }
+    }
+    
+    public String podzielAlgebraicznie(Complex complex1){
+        double x=this.re*complex1.re-this.im*-complex1.im;
+        double y=this.re*-complex1.im+this.im*complex1.re;
+        double z=Math.pow(complex1.re, 2)+Math.pow(complex1.im, 2);
+        double a=x/z;
+        double b=y/z;
+        
+        /*
+        System.out.println(x);
+        System.out.println(y);
+        System.out.println(z);
+        System.out.println(a);
+        System.out.println(b);
+        */
+        
+        if(b>=0){
+            return a + "+" + b + "i";
+        } else {
+            return a + "" + b + "i";
         }
     }
 }
